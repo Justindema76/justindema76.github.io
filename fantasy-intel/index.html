@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <title>Fantasy Intel</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">FANTASY INTEL</p>
+        <h1 id="teamTitle">Your Team</h1>
+        <p class="sub"><span id="identityLabel">Loading team…</span> · Battle of the Kings</p>
+      </div>
+      <div class="header-actions">
+        <button id="refreshButton" class="primary" type="button">REFRESH DATA</button>
+        <button id="openYahooButton" type="button">OPEN YAHOO</button>
+        <button id="themeButton" type="button" aria-label="Toggle theme">☀️</button>
+      </div>
+    </header>
+
+    <div id="dashboardNotice" class="notice" hidden></div>
+
+    <section class="team-health">
+      <div><b id="myRosterCount">—</b><span>MY PLAYERS</span></div>
+      <div><b id="myIntelCount">—</b><span>INTEL ITEMS</span></div>
+      <div><b id="myActionCount">—</b><span>ACTION NOW</span></div>
+      <div><b id="myInjuryCount">—</b><span>INJURY WATCH</span></div>
+    </section>
+
+    <nav class="view-tabs">
+      <button class="view-tab active" data-view="team">MY TEAM</button>
+      <button class="view-tab" data-view="matchups">MATCHUPS</button>
+      <button class="view-tab" data-view="league">LEAGUE</button>
+    </nav>
+
+    <main>
+      <section id="teamView" class="view active">
+        <div class="section-head">
+          <div><p class="eyebrow">YOUR ROSTER · LIVE INTEL</p><h2>What matters to your team</h2><p id="teamMeta">Loading your roster and current Intel…</p></div>
+          <div class="sync-read"><span id="syncDot"></span><b id="syncLabel">LOADING</b><small id="syncTime"></small></div>
+        </div>
+        <div class="team-tools">
+          <div id="intelFilters" class="filter-chips">
+            <button data-filter="all" class="active">ALL</button>
+            <button data-filter="action">ACTION</button>
+            <button data-filter="injury">INJURY</button>
+            <button data-filter="monitor">MONITOR</button>
+          </div>
+          <input id="teamSearch" type="search" placeholder="Search your players or Intel…" autocomplete="off">
+        </div>
+        <div id="myTeamIntel" class="intel-feed"></div>
+      </section>
+
+      <section id="matchupsView" class="view">
+        <div class="section-head"><div><p class="eyebrow">SEASON SCHEDULE</p><h2>Your matchups + league week</h2><p>Your matchup is highlighted. Switch weeks or show the full season.</p></div></div>
+        <div id="weekPicker" class="week-picker"></div>
+        <div id="mySchedule" class="my-schedule"></div>
+        <div id="matchups" class="matchups"></div>
+      </section>
+
+      <section id="leagueView" class="view">
+        <div class="section-head league-head">
+          <div><p class="eyebrow">LEAGUE OWNERSHIP</p><h2>Every roster</h2><p>See who owns every player and the latest action attached to them.</p></div>
+          <input id="leagueSearch" type="search" placeholder="Search team or player…" autocomplete="off">
+        </div>
+        <section class="league-summary">
+          <div><b id="teamCount">—</b><span>TEAMS</span></div>
+          <div><b id="rosterCount">—</b><span>ROSTERED</span></div>
+          <div><b id="matchedCount">—</b><span>MATCHED</span></div>
+          <div><b id="unmatchedCount">—</b><span>UNMATCHED</span></div>
+        </section>
+        <div id="teams" class="team-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav">
+    <button class="mobile-tab active" data-view="team">★<span>MY TEAM</span></button>
+    <button class="mobile-tab" data-view="matchups">VS<span>MATCHUPS</span></button>
+    <button class="mobile-tab" data-view="league">12<span>LEAGUE</span></button>
+  </nav>
+
+  <script src="dashboard.js" defer></script>
+</body>
+</html>
